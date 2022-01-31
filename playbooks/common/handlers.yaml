@@ -1,1 +1,7 @@
 ---
+
+- name: restart crowdsec
+  service:
+    name: crowdsec
+    state: restarted
+    enabled: true

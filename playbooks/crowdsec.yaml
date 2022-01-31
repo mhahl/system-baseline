@@ -1,0 +1,23 @@
+---
+
+- name: crowdsec | install agent and bouncer
+  block:
+
+  - name: crowdsec | install yum repo
+    template:
+      src: "../templates/crowdsec/crowdsec.repo.j2"
+      dest: "/etc/yum.repos.d/crowdsec"
+      mode: "0755"
+      owner: "root"
+      group: "root"
+
+      
+  - name: crowdsec | install agent package
+    package:
+      name: crowdsec
+      state: installed 
+    notify: restart crowdsec
+
+  tags:
+    - crowdsec
+    - crowdsec:install
