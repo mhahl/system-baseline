@@ -1,0 +1,4 @@
+---
+- name: "example security task"
+  debug:
+    msg: "hello example"
