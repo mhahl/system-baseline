@@ -10,8 +10,8 @@
 
     - name: install | create systemd timer
       template:
-        src:  ../templates/baseline.service.j2
-        dest: /etc/systemd/system/baseline.service
+        src:  ../templates/baseline.timer.j2
+        dest: /etc/systemd/system/baseline.timer
 
   tags:
     - install
