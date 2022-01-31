@@ -11,5 +11,5 @@
       tags:
         - always
 
+    - include_tasks: playbooks/install.yaml
     - include_tasks: playbooks/security.yaml
-    - include_tasks: playbooks/baseline.yaml
