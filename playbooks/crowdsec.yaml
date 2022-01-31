@@ -33,7 +33,7 @@
 - name: crowdsec | configuraion
   block:
     - name: crowdsec | get installed collections
-      command: "/bin/cscli collection list"
+      command: "/bin/cscli collections list"
       register: cscli_cmd
 
     - name: crowdsec | install collections

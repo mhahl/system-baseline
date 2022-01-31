@@ -8,6 +8,7 @@
 
     - block:
         - include_vars: secrets/passwords.yaml
+        - include_vars: config/default.yaml
       tags:
         - always
 
