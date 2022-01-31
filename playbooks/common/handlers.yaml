@@ -6,7 +6,7 @@
     state: restarted
     enabled: true
 
-- name: restarted crowdsec bouncer
+- name: restart crowdsec bouncer
   service:
     name: crowdsec-firewall-bouncer-nftables
     state: restarted
