@@ -13,9 +13,13 @@
 
   - name: crowdsec | install agent package
     package:
-      name: crowdsec
+      name:
+        - crowdsec
+        - crowdsec-firewall-bouncer-nftables
       state: installed 
-    notify: restart crowdsec
+    notify:
+      - restart crowdsec
+      - restart crowdsec bouncer
 
   - name: crowdsec | install agent configuration
     template:
@@ -24,7 +28,9 @@
       mode: "0755"
       owner: "root"
       group: "root"
-    notify: restart crowdsec
+    notify:
+      - restart crowdsec
+      - restart crowdsec bouncer
       
 
   tags:
