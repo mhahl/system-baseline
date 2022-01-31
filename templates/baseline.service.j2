@@ -4,7 +4,7 @@ Wants=baseline.timer
 
 [Service]
 Type=oneshot
-ExecStart=/bin/ansible-pull -U https://git.hahl.id.au/hahl.id.au/system-baseline.git local.yaml
+ExecStart=/bin/ansible-pull -U https://git.hahl.id.au/hahl.id.au/system-baseline.git baseline.yaml
 
 [Install]
 WantedBy=multi-user.target
