@@ -11,20 +11,21 @@
       owner: "root"
       group: "root"
 
+  - name: crowdsec | install agent package
+    package:
+      name: crowdsec
+      state: installed 
+    notify: restart crowdsec
 
-  - name: crowdsec | install yum repo
+  - name: crowdsec | install agent configuration
     template:
       src: "../templates/crowdsec/aquis.yaml.j2"
       dest: "/etc/crowdsec/aquis.yaml"
       mode: "0755"
       owner: "root"
       group: "root"
-      
-  - name: crowdsec | install agent package
-    package:
-      name: crowdsec
-      state: installed 
     notify: restart crowdsec
+      
 
   tags:
     - crowdsec
