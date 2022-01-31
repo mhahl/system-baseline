@@ -1,6 +1,6 @@
 ---
 
-- name: crowdsec | install agent and bouncer
+- name: crowdsec | install
   block:
 
   - name: crowdsec | install yum repo
@@ -11,6 +11,14 @@
       owner: "root"
       group: "root"
 
+
+  - name: crowdsec | install yum repo
+    template:
+      src: "../templates/crowdsec/aquis.yaml.j2"
+      dest: "/etc/crowdsec/aquis.yaml"
+      mode: "0755"
+      owner: "root"
+      group: "root"
       
   - name: crowdsec | install agent package
     package:
@@ -21,3 +29,19 @@
   tags:
     - crowdsec
     - crowdsec:install
+
+- name: crowdsec | configuraion
+  block:
+    - name: crowdsec | get installed collections
+      command: "/bin/cscli collection list"
+      register: cscli_cmd
+
+    - name: crowdsec | install collections
+      command: "/bin/cscli collection install {{item}}"
+      with_items: "{{crowdsec_collections}}"
+      when: item not in cscli_cmd.stdout
+      notify: restart crowdsec
+
+  tags:
+    - crowdsec
+    - crowdsec:configure

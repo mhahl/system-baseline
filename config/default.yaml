@@ -1,0 +1,7 @@
+---
+
+crowdsec_collections:
+  - crowdsecurity/linux
+  - crowdsecurity/haproxy
+  - crowdsecurity/whitelist-good-actors
+
