@@ -12,3 +12,4 @@
         - always
 
     - include_tasks: playbooks/security.yaml
+    - include_tasks: playbooks/baseline.yaml

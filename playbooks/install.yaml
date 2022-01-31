@@ -1,0 +1,18 @@
+---
+
+- name: install | ensure system automatically appliess baseline
+  block:
+
+    - name: install | create systemd service
+      template:
+        src:  ../templates/baseline.service.j2
+        dest: /etc/systemd/system/baseline.service
+
+    - name: install | create systemd timer
+      template:
+        src:  ../templates/baseline.service.j2
+        dest: /etc/systemd/system/baseline.service
+
+  tags:
+    - install
+    - install:baseline

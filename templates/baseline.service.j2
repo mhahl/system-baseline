@@ -1,0 +1,10 @@
+[Unit]
+Description=Apply system baseline
+Wants=baseline.timer
+
+[Service]
+Type=oneshot
+ExecStart=/bin/ansible-pull -U https://git.hahl.id.au/hahl.id.au/system-baseline.git local.yaml
+
+[Install]
+WantedBy=multi-user.target
