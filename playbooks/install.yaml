@@ -13,6 +13,12 @@
         src:  ../templates/baseline.timer.j2
         dest: /etc/systemd/system/baseline.timer
 
+    - name: install | enable timer
+      systemd:
+        daemon_reload: true
+        name: baseline.timer
+        enabled: true
+
   tags:
     - install
     - install:baseline
