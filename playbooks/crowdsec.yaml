@@ -37,7 +37,7 @@
       register: cscli_cmd
 
     - name: crowdsec | install collections
-      command: "/bin/cscli collection install {{item}}"
+      command: "/bin/cscli collections install {{item}}"
       with_items: "{{crowdsec_collections}}"
       when: item not in cscli_cmd.stdout
       notify: restart crowdsec
