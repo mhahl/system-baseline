@@ -18,6 +18,7 @@
         daemon_reload: true
         name: baseline.timer
         enabled: true
+        state: started
 
   tags:
     - install
