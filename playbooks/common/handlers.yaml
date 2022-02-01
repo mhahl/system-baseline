@@ -8,6 +8,6 @@
 
 - name: restart crowdsec bouncer
   service:
-    name: crowdsec-firewall-bouncer-nftables
+    name: crowdsec-firewall-bouncer
     state: restarted
     enabled: true
