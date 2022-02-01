@@ -23,8 +23,8 @@
 
   - name: crowdsec | install agent configuration
     template:
-      src: "../templates/crowdsec/aquis.yaml.j2"
-      dest: "/etc/crowdsec/aquis.yaml"
+      src: "../templates/crowdsec/acquis.yamlj2"
+      dest: "/etc/crowdsec/acquis.yaml"
       mode: "0755"
       owner: "root"
       group: "root"
