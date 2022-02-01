@@ -4,7 +4,8 @@ Wants=baseline.timer
 
 [Service]
 Type=oneshot
-ExecStart=/bin/ansible-pull -U https://git.hahl.id.au/hahl.id.au/system-baseline.git baseline.yaml
+ExecStart=/bin/ansible-pull -U https://git.hahl.id.au/hahl.id.au/system-baseline.git baseline.yaml -c $([ -f ~/.staging ] && echo "development" || echo "master" )
+
 
 [Install]
 WantedBy=multi-user.target
