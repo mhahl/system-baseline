@@ -42,6 +42,7 @@
     - name: crowdsec | get installed collections
       command: "/bin/cscli collections list"
       register: cscli_cmd
+      changed_when: false
 
     - name: crowdsec | install collections
       command: "/bin/cscli collections install {{item}}"

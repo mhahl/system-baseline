@@ -1,0 +1,36 @@
+---
+
+- name: updates | configure automatic security updates 
+  block:
+
+  - name: updates | install dnf-automatic
+    dnf:
+      name:
+       - dnf-automatic
+      state: installed
+    tags:
+      - updates
+      - updates:install
+
+  - name: updates | configure dnf-automatic
+    template:
+      src: "../templates/updates/automatic.conf.j2"
+      dest: "/etc/dnf/automatic.conf"
+      mode: "0755"
+      owner: "root"
+      group: "root"
+    tags:
+      - updates
+      - updates:configure
+ 
+  - name: updates | start dnf-automatic timer
+    systemd:
+      name: dnf-automatic.timer
+      state: started
+      enabled: true
+    tags:
+      - updates
+      - updates:configure
+
+  tags:
+    - updates
