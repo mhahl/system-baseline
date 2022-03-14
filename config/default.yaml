@@ -1,7 +1,29 @@
 ---
+##
+# Proxy
+# syd-proxy-vip.dmz.hahl.id.au
+#
+proxy_server: 172.16.17.38
+proxy_server_port: 3128
+no_proxy: "172.16.17.0/24, 10.0.120.126"
 
+# Crowdsec configuration.
+#
 crowdsec_collections:
   - crowdsecurity/linux
   - crowdsecurity/haproxy
   - crowdsecurity/whitelist-good-actors
 
+##
+# NTP Servers
+#
+ntp_servers:
+  - syd-proxy-01.dmz.hahl.id.au
+  - syd-proxy-02.dmz.hahl.id.au
+
+##
+# DNS Servers
+#
+dns_servers:
+  - 172.16.17.36 # syd-proxy-01
+  - 172.16.17.37 # syd-proxy-02

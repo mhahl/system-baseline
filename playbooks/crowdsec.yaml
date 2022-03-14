@@ -21,6 +21,26 @@
       - restart crowdsec
       - restart crowdsec bouncer
 
+  - name: crowdsec | create systemd dropin directory
+    file:
+      path: /etc/systemd/system/crowdsec.service.d
+      state: directory
+      mode: "0755"
+    notify:
+      - restart crowdsec
+      - restart crowdsec bouncer
+
+  - name: crowdsec | install http proxy settings
+    template:
+      src: "../templates/crowdsec/http-proxy.conf.j2"
+      dest: "/etc/systemd/system/crowdsec.service.d/http-proxy.conf"
+      mode: "0755"
+      owner: "root"
+      group: "root"
+    notify:
+      - restart crowdsec
+      - restart crowdsec bouncer
+
   - name: crowdsec | install agent configuration
     template:
       src: "../templates/crowdsec/acquis.yaml.j2"
@@ -43,6 +63,9 @@
       command: "/bin/cscli collections list"
       register: cscli_cmd
       changed_when: false
+      environment:
+        http_proxy: "http://{{proxy_server}}:{{proxy_server_port}}"
+        https_proxy: "http://{{proxy_server}}:{{proxy_server_port}}"
 
     - name: crowdsec | install collections
       command: "/bin/cscli collections install {{item}}"

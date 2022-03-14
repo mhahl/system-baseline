@@ -1,0 +1,22 @@
+---
+
+- name: proxy | set system proxy settings
+  block:
+
+  - name: proxy | set proxy in profile
+    template:
+      src: "../templates/proxy/99-proxy.sh.j2"
+      dest: "/etc/profile.d/99-proxy.sh"
+      mode: "0755"
+      owner: "root"
+      group: "root"
+
+  - name: proxy | set yum proxy
+    lineinfile:
+      path: /etc/dnf/dnf.conf
+      regexp: '^proxy='
+      line: "proxy=http://{{proxy_server}}:{{proxy_server_port}}"
+      insertafter: '[main]'
+
+  tags:
+    - proxy

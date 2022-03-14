@@ -1,0 +1,10 @@
+#!/bin/bash
+# Set proxy server.
+export HTTP_PROXY=http://{{proxy_server}}:{{proxy_server_port}}
+export HTTPS_PROXY=http://{{proxy_server}}:{{proxy_server_port}}
+export http_proxy=http://{{proxy_server}}:{{proxy_server_port}}
+export https_proxy=http://{{proxy_server}}:{{proxy_server_port}}
+
+# No proxy for local network.
+export NO_PROXY="{{no_proxy}}"
+export no_proxy="{{no_proxy}}"

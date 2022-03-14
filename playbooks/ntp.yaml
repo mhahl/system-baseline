@@ -1,0 +1,36 @@
+---
+
+- name: ntp | configure ntp servers
+  block:
+
+  - name: ntp | install chrony
+    dnf:
+      name:
+       - chrony
+      state: installed
+    tags:
+      - ntp
+      - ntp:install
+
+  - name: ntp | configure chrony settings
+    template:
+      src: "../templates/ntp/chrony.conf.j2"
+      dest: "/etc/chrony.conf"
+      mode: "0755"
+      owner: "root"
+      group: "root"
+    tags:
+      - ntp
+      - ntp:configure
+ 
+  - name: ntp | start chronyd service
+    systemd:
+      name: chronyd
+      state: started
+      enabled: true
+    tags:
+      - ntp
+      - ntp:configure
+
+  tags:
+    - ntp

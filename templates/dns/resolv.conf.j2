@@ -1,0 +1,7 @@
+search hahl.id.au
+
+{% for server in dns_servers %}
+nameserver {{server}}
+{%endfor%}
+
+options timeout:5

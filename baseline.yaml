@@ -12,7 +12,10 @@
       tags:
         - always
 
+    - include_tasks: playbooks/dns.yaml
+    - include_tasks: playbooks/proxy.yaml
     - include_tasks: playbooks/install.yaml
     - include_tasks: playbooks/security.yaml
     - include_tasks: playbooks/crowdsec.yaml
     - include_tasks: playbooks/updates.yaml
+    - include_tasks: playbooks/ntp.yaml
