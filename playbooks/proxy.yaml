@@ -18,5 +18,13 @@
       line: "proxy=http://{{proxy_server}}:{{proxy_server_port}}"
       insertafter: '[main]'
 
+  - name: proxy | set systemd proxy settings
+    template:
+      src: "../templates/proxy/http-proxy.conf.j2"
+      dest: "/etc/systemd/system.conf.d/http-proxy.conf"
+      mode: "0755"
+      owner: "root"
+      group: "root"
+
   tags:
     - proxy

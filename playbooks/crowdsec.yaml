@@ -30,17 +30,6 @@
       - restart crowdsec
       - restart crowdsec bouncer
 
-  - name: crowdsec | install http proxy settings
-    template:
-      src: "../templates/crowdsec/http-proxy.conf.j2"
-      dest: "/etc/systemd/system/crowdsec.service.d/http-proxy.conf"
-      mode: "0755"
-      owner: "root"
-      group: "root"
-    notify:
-      - restart crowdsec
-      - restart crowdsec bouncer
-
   - name: crowdsec | install agent configuration
     template:
       src: "../templates/crowdsec/acquis.yaml.j2"
