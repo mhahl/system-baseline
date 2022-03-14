@@ -16,6 +16,7 @@
 
     - debug:
         msg:
+          - "hostname = {{ansible_hostname}}"
           - "configure_dns = {{configure_dns}}"
           - "configure_proxy = {{configure_proxy}}"
           - "configure_baseline = {{configure_baseline}}"
