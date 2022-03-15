@@ -18,6 +18,11 @@
       line: "proxy=http://{{proxy_server}}:{{proxy_server_port}}"
       insertafter: '[main]'
 
+  - name: proxy | ensure systemd config directory exists
+    file:
+      path: /etc/systemd/system.conf.d/
+      state: directory
+      
   - name: proxy | set systemd proxy settings
     template:
       src: "../templates/proxy/http-proxy.conf.j2"
@@ -25,6 +30,7 @@
       mode: "0755"
       owner: "root"
       group: "root"
+    notify: systemd daemon-reload
 
   tags:
     - proxy
