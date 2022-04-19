@@ -13,10 +13,11 @@ configure_security: yes
 ##
 # Proxy
 # syd-proxy-vip.dmz.hahl.id.au
+# - No proxy fo OpenStack, and Metadata Service.
 #
 proxy_server: 172.16.17.38
 proxy_server_port: 3128
-no_proxy: "172.16.17.0/24, 10.0.120.126"
+no_proxy: "172.16.17.0/24, 10.0.120.126, 169.254.169.254"
 
 # Crowdsec configuration.
 #
