@@ -1,0 +1,19 @@
+---
+# http://169.254.169.254/openstack/2018-08-27
+#
+- name: metadata | read instance metadata
+  uri:
+    url: http://169.254.169.254/openstack/2018-08-27/meta_data.json
+    method: GET
+    return_content: yes
+    status_code: 200
+    body_format: json
+  register: result
+  retries: 5
+  delay: 1
+
+- set_fact:
+    metadata_service: "{{result.json.meta}}"
+
+- debug:
+    msg: "{{metadata_service}}"

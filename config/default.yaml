@@ -2,13 +2,15 @@
 
 ##
 # Toggle functionality
-configure_dns: no
-configure_ntp: no
-configure_updates: yes
-configure_proxy: no
-configure_baseline: yes
-configure_crowdsec: no
-configure_security: yes
+#
+configure_dns:      "{{ True if 'au.hahl.baseline.role-dns'      in metadata_service.keys() else False }}"
+configure_ntp:      "{{ True if 'au.hahl.baseline.role-ntp'      in metadata_service.keys() else False }}"
+configure_updates:  "{{ True if 'au.hahl.baseline.role-updates'  in metadata_service.keys() else False }}"
+configure_proxy:    "{{ True if 'au.hahl.baseline.role-proxy'    in metadata_service.keys() else False }}"
+configure_baseline: "{{ True if 'au.hahl.baseline.role-baseline' in metadata_service.keys() else False }}"
+configure_crowdsec: "{{ True if 'au.hahl.baseline.role-crowdsec' in metadata_service.keys() else False }}"
+configure_security: "{{ True if 'au.hahl.baseline.role-security' in metadata_service.keys() else False }}"
+
 
 ##
 # Proxy

@@ -1,3 +1,15 @@
 [Service]
-Environment=HTTP_PROXY=http://{{proxy_server}}:{{proxy_server_port}}
-Environment=HTTPs_PROXY=http://{{proxy_server}}:{{proxy_server_port}}
+Environment="HTTP_PROXY=http://{{proxy_server}}:{{proxy_server_port}}"
+Environment="HTTPS_PROXY=http://{{proxy_server}}:{{proxy_server_port}}"
+Environment="http_proxy=http://{{proxy_server}}:{{proxy_server_port}}"
+Environment="https_proxy=http://{{proxy_server}}:{{proxy_server_port}}"
+Environment="NO_PROXY="{{no_proxy}}"
+Environment="no_proxy="{{no_proxy}}"
+
+[Manager]
+DefaultEnvironment="HTTP_PROXY=http://{{proxy_server}}:{{proxy_server_port}}"
+DefaultEnvironment="HTTPS_PROXY=http://{{proxy_server}}:{{proxy_server_port}}"
+DefaultEnvironment="http_proxy=http://{{proxy_server}}:{{proxy_server_port}}"
+DefaultEnvironment="https_proxy=http://{{proxy_server}}:{{proxy_server_port}}"
+DefaultEnvironment="NO_PROXY="{{no_proxy}}"
+DefaultEnvironment="no_proxy="{{no_proxy}}"

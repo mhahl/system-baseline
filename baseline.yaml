@@ -7,8 +7,15 @@
   tasks:
 
     - block:
+
+          # Check emtadata service for roles
+        - include_tasks: "playbooks/common/metadata_service.yaml"
+
+          # Include variables
         - include_vars: "secrets/passwords.yaml"
         - include_vars: "config/default.yaml"
+
+          # Include host vars if they exist
         - include_vars: "config/hosts/{{ansible_hostname}}.yaml"
           failed_when: false
       tags:

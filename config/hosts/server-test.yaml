@@ -1,10 +1,10 @@
 ##
 # Toggle functionality
-configure_dns: no
-configure_ntp: no
+configure_dns: yes
+configure_ntp: yes
 configure_updates: yes
 configure_proxy: yes
 configure_baseline: yes
-configure_crowdsec: no
+configure_crowdsec: yes
 configure_security: yes
 
