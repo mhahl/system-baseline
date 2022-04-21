@@ -14,7 +14,7 @@
   ignore_errors: true
 
 - set_fact:
-    metadata_service: "{{result.json.meta}}"
+    metadata_service: "{{result.json.meta | default({})}}"
 
 - debug:
     msg: "{{metadata_service}}"
