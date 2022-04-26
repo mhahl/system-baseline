@@ -3,7 +3,7 @@
 ##
 # Toggle functionality
 #
-configure_dns:      "{{ (True if 'au.hahl.baseline.role-dns'      in metadata_service.keys()) | defaut(True)  }}"
+configure_dns:      "{{ (True if 'au.hahl.baseline.role-dns'      in metadata_service.keys()) | default(True) }}"
 configure_ntp:      "{{ (True if 'au.hahl.baseline.role-ntp'      in metadata_service.keys()) | default(True) }}"
 configure_updates:  "{{ (True if 'au.hahl.baseline.role-updates'  in metadata_service.keys()) | default(True) }}"
 configure_proxy:    "{{ (True if 'au.hahl.baseline.role-proxy'    in metadata_service.keys()) | default(True) }}"
