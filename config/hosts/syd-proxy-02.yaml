@@ -1,1 +1,3 @@
 configure_ntp: no
+configure_dns: no
+configure_proxy: no
