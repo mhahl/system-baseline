@@ -38,6 +38,13 @@ ntp_servers:
   - ntp02.hahl.au
 
 ##
+# DNS Search
+#
+dns_search:
+  - hahl.au
+  - auth.hahl.au
+
+##
 # DNS Servers
 #
 dns_servers:
