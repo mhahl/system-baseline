@@ -1,0 +1,3 @@
+configure_ntp: yes
+configure_dns: yes
+configure_proxy: yes
