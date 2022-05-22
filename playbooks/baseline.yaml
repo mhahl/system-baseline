@@ -3,6 +3,16 @@
 - name: install | ensure system automatically appliess baseline
   block:
 
+    - name: install | ensure configure directory exists
+      file:
+        path: /etc/systemd/system/baseline.service.d
+        state: directory
+
+    - name: install | install systemd service proxy overrides
+      template:
+        src:  ../templates/baseline/baseline-proxy.conf.j2
+        dest: /etc/systemd/system/baseline.service.d/baseline-proxy.conf
+
     - name: install | create systemd service
       template:
         src:  ../templates/baseline/baseline.service.j2
