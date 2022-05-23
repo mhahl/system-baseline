@@ -12,6 +12,8 @@
       template:
         src:  ../templates/baseline/baseline-proxy.conf.j2
         dest: /etc/systemd/system/baseline.service.d/baseline-proxy.conf
+      when: configure_baseline_proxy
+
 
     - name: install | create systemd service
       template:
