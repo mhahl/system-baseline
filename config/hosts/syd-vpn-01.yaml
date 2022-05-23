@@ -1,5 +1,5 @@
-configure_ntp: yes
-configure_dns: yes
+configure_ntp: no
+configure_dns: no
 configure_proxy: no
 configure_baseline_proxy: no
 configure_systemd_proxy: no
