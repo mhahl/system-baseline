@@ -21,7 +21,7 @@ configure_security:       "{{ (True if 'au.hahl.baseline.role-security'       in
 #
 proxy_server: proxy.dmz.hahl.au
 proxy_server_port: 3128
-no_proxy: "172.16.0.0/16,10.0.120.126,169.254.169.254,auth.hahl.au,auth.hahl.au,dmz.hahl.au,apps.hahl.au"
+no_proxy: "172.16.0.0/16,10.0.120.126,169.254.169.254,auth.hahl.au,auth.hahl.au,dmz.hahl.au,apps.hahl.au,os.syd.mh.id.au,horizon.hahl.id.au"
 
 # Crowdsec configuration.
 #
