@@ -12,6 +12,7 @@ configure_baseline_proxy: "{{ (True if 'au.hahl.baseline.role-baseline-proxy' in
 configure_baseline:       "{{ (True if 'au.hahl.baseline.role-baseline'       in metadata_service.keys()) | default(True) }}"
 configure_crowdsec:       "{{ (True if 'au.hahl.baseline.role-crowdsec'       in metadata_service.keys()) | default(False)}}"
 configure_security:       "{{ (True if 'au.hahl.baseline.role-security'       in metadata_service.keys()) | default(True) }}"
+configure_idmapd:         "{{ (True if 'au.hahl.baseline.role-idmapd'         in metadata_service.keys()) | default(True) }}"
 
 
 ##
