@@ -50,3 +50,5 @@ dns_search:
 dns_servers:
   - 10.0.0.20 # syd-proxy-01
   - 10.0.0.21 # syd-proxy-02
+
+idmapd_domain: "hahl.au"
