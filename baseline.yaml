@@ -50,5 +50,8 @@
     - include_tasks: "playbooks/updates.yaml"
       when: configure_updates
 
+    - include_tasks: "playbooks/idmapd.yaml"
+      when: configure_idmapd
+
     - include_tasks: "playbooks/ntp.yaml"
       when: configure_ntp
