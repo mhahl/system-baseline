@@ -6,6 +6,9 @@
   - name: idmapd | get system dns domain
     shell: "hostname -d"
     register: hostname_out
+    tags:
+      - idmapd
+      - idmapd:configure
 
   - name: idmapd | configure idmapd
     template:
@@ -14,8 +17,18 @@
       mode: "0755"
       owner: "root"
       group: "root"
+    register: idmapd
     tags:
       - idmapd
       - idmapd:configure
+
+  - name: idmapd | clear cache
+    shell: "nfsidmap -c"
+    when: idmapd.changed
+    tags:
+      - idmapd
+      - idmapd:configure
+      - idmapd:clear_cache
+
   tags:
     - idmapd
