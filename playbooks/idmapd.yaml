@@ -3,6 +3,10 @@
 - name: idmapd | configure idmapd
   block:
 
+  - name: idmapd | get system dns domain
+    shell: "hostname -d"
+    register: hostname_out
+
   - name: idmapd | configure idmapd
     template:
       src: "../templates/idmapd/idmapd.conf.j2"
