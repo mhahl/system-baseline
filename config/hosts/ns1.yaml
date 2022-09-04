@@ -6,3 +6,4 @@ configure_baseline_proxy: no
 configure_security: yes
 configure_crowdsec: yes
 configure_updates: yes
+configure_idmapd: no
