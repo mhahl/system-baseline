@@ -1,0 +1,9 @@
+configure_ntp: np
+configure_dns: no
+configure_proxy: no
+configure_systemd_proxy: no
+configure_baseline_proxy: no
+configure_security: yes
+configure_crowdsec: yes
+configure_updates: yes
+configure_idmapd: no
