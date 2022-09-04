@@ -1,5 +1,5 @@
-configure_ntp: np
-configure_dns: no
+configure_ntp: yes
+configure_dns: yes
 configure_proxy: no
 configure_systemd_proxy: no
 configure_baseline_proxy: no
@@ -7,3 +7,21 @@ configure_security: yes
 configure_crowdsec: yes
 configure_updates: yes
 configure_idmapd: no
+
+ntp_servers:
+  - ntp1.anu.edu.au
+  - ntp2.anu.edu.au
+
+##
+# DNS Search
+#
+dns_search:
+  - hahl.au
+
+##
+# DNS Servers
+#
+dns_servers:
+  - 9.9.9.9
+  - 149.112.112.112
+
