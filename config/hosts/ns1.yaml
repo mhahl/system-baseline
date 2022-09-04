@@ -9,8 +9,10 @@ configure_updates: yes
 configure_idmapd: no
 
 ntp_servers:
-  - ntp1.anu.edu.au
-  - ntp2.anu.edu.au
+  - 0.au.pool.ntp.org
+  - 1.au.pool.ntp.org
+  - 2.au.pool.ntp.org
+  - 3.au.pool.ntp.org
 
 ##
 # DNS Search
