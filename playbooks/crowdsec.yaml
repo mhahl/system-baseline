@@ -52,9 +52,6 @@
       command: "/bin/cscli collections list"
       register: cscli_cmd
       changed_when: false
-      environment:
-        http_proxy: "http://{{proxy_server}}:{{proxy_server_port}}"
-        https_proxy: "http://{{proxy_server}}:{{proxy_server_port}}"
 
     - name: crowdsec | install collections
       command: "/bin/cscli collections install {{item}}"
