@@ -1,0 +1,54 @@
+---
+- hosts: all
+  become: true
+  handlers:
+    - import_tasks: playbooks/common/handlers.yaml
+
+  tasks:
+
+    - block:
+
+          # Check emtadata service for roles
+        - include_tasks: "playbooks/common/metadata_service.yaml"
+
+          # Include variables
+        - include_vars: "secrets/passwords.yaml"
+        - include_vars: "config/default.yaml"
+
+          # Include host vars if they exist
+        - include_vars: "config/hosts/{{ansible_hostname}}.yaml"
+          failed_when: false
+      tags:
+        - always
+
+    - debug:
+        msg:
+          - "hostname = {{ansible_hostname}}"
+          - "configure_dns = {{configure_dns}}"
+          - "configure_proxy = {{configure_proxy}}"
+          - "configure_baseline = {{configure_baseline}}"
+          - "configure_security = {{configure_security}}"
+          - "configure_crowdsec = {{configure_crowdsec}}"
+          - "configure_updates = {{configure_updates}}"
+          - "configure_ntp = {{configure_ntp}}"
+
+    - include_tasks: "playbooks/dns.yaml"
+      when: configure_dns
+
+    - include_tasks: "playbooks/proxy.yaml"
+      when: configure_proxy
+
+    - include_tasks: "playbooks/baseline.yaml"
+      when: configure_baseline
+
+    - include_tasks: "playbooks/security.yaml"
+      when: configure_security
+
+    - include_tasks: "playbooks/crowdsec.yaml"
+      when: configure_crowdsec
+
+    - include_tasks: "playbooks/updates.yaml"
+      when: configure_updates
+
+    - include_tasks: "playbooks/ntp.yaml"
+      when: configure_ntp
