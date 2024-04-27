@@ -14,8 +14,9 @@
 
   - name: security | deploy motd
     copy:
-      dest: "/etc/motd.d/hahl"
+      dest: "/etc/motd.d/sigaint"
       content: |+
+       $
                        __
                       / _)
              _.----._/ /
@@ -33,3 +34,4 @@
 
   tags:
     - security
+
