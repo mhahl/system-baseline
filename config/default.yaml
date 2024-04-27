@@ -11,6 +11,7 @@ configure_systemd_proxy:  True
 configure_baseline_proxy: True
 configure_baseline:       True
 configure_security:       True
+configure_idmapd:         False
 
 
 ##
