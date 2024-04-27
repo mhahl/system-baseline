@@ -3,53 +3,40 @@
 ##
 # Toggle functionality
 #
-configure_dns:            "{{ (True if 'au.hahl.baseline.role-dns'            in metadata_service.keys()) | default(False) }}"
-configure_ntp:            "{{ (True if 'au.hahl.baseline.role-ntp'            in metadata_service.keys()) | default(False) }}"
-configure_updates:        "{{ (True if 'au.hahl.baseline.role-updates'        in metadata_service.keys()) | default(True) }}"
-configure_proxy:          "{{ (True if 'au.hahl.baseline.role-proxy'          in metadata_service.keys()) | default(False)}}"
-configure_systemd_proxy:  "{{ (True if 'au.hahl.baseline.role-systemd-proxy'  in metadata_service.keys()) | default(False)}}"
-configure_baseline_proxy: "{{ (True if 'au.hahl.baseline.role-baseline-proxy' in metadata_service.keys()) | default(False)}}"
-configure_baseline:       "{{ (True if 'au.hahl.baseline.role-baseline'       in metadata_service.keys()) | default(True) }}"
-configure_crowdsec:       "{{ (True if 'au.hahl.baseline.role-crowdsec'       in metadata_service.keys()) | default(False)}}"
-configure_security:       "{{ (True if 'au.hahl.baseline.role-security'       in metadata_service.keys()) | default(True) }}"
-configure_idmapd:         "{{ (True if 'au.hahl.baseline.role-idmapd'         in metadata_service.keys()) | default(True) }}"
+configure_dns:            True
+configure_ntp:            True
+configure_updates:        True
+configure_proxy:          True
+configure_systemd_proxy:  True
+configure_baseline_proxy: True
+configure_baseline:       True
+configure_security:       True
 
 
 ##
 # Proxy
-# syd-proxy-vip.dmz.hahl.id.au
-# - No proxy fo OpenStack, and Metadata Service.
+# proxy.dmz.sigaint.au
 #
-proxy_server: proxy.dmz.hahl.au
+proxy_server: proxy.dmz.siaint.au
 proxy_server_port: 3128
-no_proxy: "172.16.0.0/16,10.0.120.126,169.254.169.254,auth.hahl.au,auth.hahl.au,dmz.hahl.au,apps.hahl.au,os.syd.mh.id.au,horizon.hahl.id.au"
-
-# Crowdsec configuration.
-#
-crowdsec_collections:
-  - crowdsecurity/linux
-  - crowdsecurity/haproxy
-  - crowdsecurity/whitelist-good-actors
+no_proxy: "10.120.0.0/16"
 
 ##
 # NTP Servers
 #
 ntp_servers:
-  - ntp01.hahl.au
-  - ntp02.hahl.au
+  - time1.google.com
+  - time2.google.com
+  - time2.google.com
 
 ##
 # DNS Search
 #
 dns_search:
-  - hahl.au
-  - auth.hahl.au
+  - sigaint.au
 
 ##
 # DNS Servers
 #
 dns_servers:
-  - 10.0.0.20 # syd-proxy-01
-  - 10.0.0.21 # syd-proxy-02
-
-idmapd_domain: "hahl.au"
+  - 10.120.2.1

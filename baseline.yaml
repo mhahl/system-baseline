@@ -44,9 +44,6 @@
     - include_tasks: "playbooks/security.yaml"
       when: configure_security
 
-    - include_tasks: "playbooks/crowdsec.yaml"
-      when: configure_crowdsec
-
     - include_tasks: "playbooks/updates.yaml"
       when: configure_updates
 
