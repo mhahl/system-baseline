@@ -1,8 +1,12 @@
 ---
 
+# This is bullshit
+# the timezone module doenst load redirects to
+# community.blah but isnt installed.
+#
 - name: security | set timezone to Australia/Sydney
-  timezone:
-    name: Australia/Sydney
+  command:
+    cmd: "timedatectl set-timezone Australia/Sydney"
 
 - name: security | apply security hardening
   block:
