@@ -1,7 +1,7 @@
 ---
 
 - name: security | set timezone to Australia/Sydney
-  community.general.timezone:
+  timezone:
     name: Australia/Sydney
 
 - name: security | apply security hardening
