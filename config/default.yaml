@@ -17,7 +17,7 @@ configure_security:       True
 # Proxy
 # proxy.dmz.sigaint.au
 #
-proxy_server: proxy.dmz.sigaint.au
+proxy_server: lan-proxy-vip.dmz.sigaint.au
 proxy_server_port: 3128
 no_proxy: "10.120.0.0/16"
 
