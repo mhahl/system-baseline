@@ -28,7 +28,6 @@
           - "configure_proxy = {{configure_proxy}}"
           - "configure_baseline = {{configure_baseline}}"
           - "configure_security = {{configure_security}}"
-          - "configure_crowdsec = {{configure_crowdsec}}"
           - "configure_updates = {{configure_updates}}"
           - "configure_ntp = {{configure_ntp}}"
 
@@ -43,9 +42,6 @@
 
     - include_tasks: "playbooks/security.yaml"
       when: configure_security
-
-    - include_tasks: "playbooks/crowdsec.yaml"
-      when: configure_crowdsec
 
     - include_tasks: "playbooks/updates.yaml"
       when: configure_updates

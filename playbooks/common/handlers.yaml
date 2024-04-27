@@ -4,12 +4,6 @@
     daemon_reload: yes
     daemon_reexec: yes
 
-- name: restart crowdsec
-  service:
-    name: crowdsec
-    state: restarted
-    enabled: true
-
 - name: restart chronyd
   service:
     name: chronyd
