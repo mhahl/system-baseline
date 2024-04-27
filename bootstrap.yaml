@@ -8,9 +8,6 @@
 
     - block:
 
-          # Check emtadata service for roles
-        - include_tasks: "playbooks/common/metadata_service.yaml"
-
           # Include variables
         - include_vars: "secrets/passwords.yaml"
         - include_vars: "config/default.yaml"

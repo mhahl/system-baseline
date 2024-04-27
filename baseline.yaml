@@ -7,10 +7,6 @@
   tasks:
 
     - block:
-
-          # Check emtadata service for roles
-        - include_tasks: "playbooks/common/metadata_service.yaml"
-
           # Include variables
         - include_vars: "secrets/passwords.yaml"
         - include_vars: "config/default.yaml"
@@ -28,7 +24,6 @@
           - "configure_proxy = {{configure_proxy}}"
           - "configure_baseline = {{configure_baseline}}"
           - "configure_security = {{configure_security}}"
-          - "configure_crowdsec = {{configure_crowdsec}}"
           - "configure_updates = {{configure_updates}}"
           - "configure_ntp = {{configure_ntp}}"
 

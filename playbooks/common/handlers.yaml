@@ -10,8 +10,3 @@
     state: restarted
     enabled: true
 
-- name: restart crowdsec bouncer
-  service:
-    name: crowdsec-firewall-bouncer
-    state: restarted
-    enabled: true
